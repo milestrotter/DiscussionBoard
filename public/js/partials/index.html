@@ -1,0 +1,13 @@
+<div class='row'>
+	<div class='col-sm-12'>
+		<h1>Welcome to Discussion Board</h1>
+		<h3>Hello!</h3>
+		<h3>Please enter your name to join and share your ideas</h3>
+		<div ng-controller='UsersController'>
+			<input type='text' name='name' ng-model='user.name' placeholder='Username'>
+			<a href="/#/dashboard">
+				<input type='submit' class='btn btn-primary' value='Enter' ng-click='Login(user)'>
+			</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,41 @@
+<div class='row'>
+	<div class='col-sm-12'>
+		<div ng-controller='DashboardController'>
+			<h1>Welcome to Dashboard, {{ logged_in_user.name }}</h1>
+			<input type='text' ng-model='filter_topics' placeholder='Search'>
+			<table class='table table-condensed table-striped'>
+				<thead>
+					<th>Category</th>
+					<th>Topic</th>
+					<th>User Name</th>
+					<th>Posts</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat='topic in discussions | filter: filter_topics'>
+						<td>{{topic.category}}</td>
+						<td><a href="/#/topic/{{topic._id}}">{{topic.title}}</a></td>
+						<td><a href="/#/user/{{topic._user._id}}">{{topic._user.name}}</a></td>
+						<td>{{topic.posts.length}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class='row'>
+	<div class='col-sm-8'>
+		<div ng-controller='TopicsController'>
+			<p><label>Topic</label> <input type='text' ng-model='new_topic.title' placeholder='Topic Title'></p>
+			<p><label>Description</label> <textarea ng-model='new_topic.description' placeholder='Description'></textarea></p>
+			<p>
+				<label>Category</label>
+				<select ng-model='new_topic.category' ng-options='category.name as category.name for category in categories'>
+				</select>
+			</p>
+			<input type='submit' class='btn btn-primary' ng-click='addDiscussion()'>
+		</div>
+	</div>
+</div>
+
+	</div>
+</div>
